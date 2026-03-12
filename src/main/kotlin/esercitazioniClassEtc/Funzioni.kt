@@ -1,3 +1,5 @@
+package esercitazioniClassEtc
+
 fun main(){
 
     println(2+3)
@@ -14,7 +16,7 @@ dichiariamo che prendiamo due parametri di tipo Integer a suo interno
 e vogliomo un dato di tipo Integer come risultato.
 in seguito dico come svolgere la funzione
 
-fun somma( x:Int, y:Int):Int{
+fun esercitazioniClassEtc.somma( x:Int, y:Int):Int{
     println("Sto sommando $x con $y..")
     return x+y
 }

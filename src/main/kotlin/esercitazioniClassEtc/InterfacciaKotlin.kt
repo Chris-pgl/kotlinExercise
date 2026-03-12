@@ -1,3 +1,5 @@
+package esercitazioniClassEtc
+
 /**
  * Interfacce -
  *

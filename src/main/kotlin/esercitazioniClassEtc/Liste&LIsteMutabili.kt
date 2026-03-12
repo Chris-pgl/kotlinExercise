@@ -1,3 +1,5 @@
+package esercitazioniClassEtc
+
 fun main(){
 
     //lista non mutabile come un array base

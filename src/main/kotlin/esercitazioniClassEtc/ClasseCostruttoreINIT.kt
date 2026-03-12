@@ -1,3 +1,5 @@
+package esercitazioniClassEtc
+
 class Persona(val nome:String, var age:Int){
     init {
         println("Ciao sono $nome e ho $age anni!")

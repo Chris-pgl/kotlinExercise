@@ -1,4 +1,4 @@
-
+package esercitazioniClassEtc
 fun main(){
 
     val set = setOf<String>("cane","gatto","coccodrillo")

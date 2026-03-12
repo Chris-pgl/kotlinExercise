@@ -1,3 +1,5 @@
+package esercitazioniClassEtc
+
 /**
  * Per estendere l'ereditarietà della classe madre alla classe figlia
  * si richiema la classe madre ( dove c'è - open -)
@@ -21,7 +23,7 @@ class ContoBancaSella(override val name:String,
     }
 
     override val endpointSitoWeb: String
-        get() = "Http://ContoBancaSella.."
+        get() = "Http://esercitazioniClassEtc.ContoBancaSella.."
 
     override fun preleva(importo: Int) {
         super.preleva(importo)
@@ -107,10 +109,10 @@ abstract class ContoBancario(open val name:String, open val lastName:String, ope
     }
 
     fun mostraSaldoInDollari() =
-        println("Saldo: $saldo€ converito in $ = " + ContoBancario.convertiInDollari(saldo) +"$")
+        println("Saldo: $saldo€ converito in $ = " + convertiInDollari(saldo) +"$")
 
     /**
-     * Metodo equals per sapere se un ContoBancario è uguale a uno simile
+     * Metodo equals per sapere se un esercitazioniClassEtc.ContoBancario è uguale a uno simile
      */
     override fun equals(other: Any?): Boolean {
         if(this === other) return true
@@ -126,20 +128,20 @@ abstract class ContoBancario(open val name:String, open val lastName:String, ope
 
 fun main() {
 
-    /*val conto1 = ContoBancario("Mario","Rossi", 1000)
+    /*val conto1 = esercitazioniClassEtc.ContoBancario("Mario","Rossi", 1000)
     conto1.preleva(100)
     conto1.stampaSaldo()
     conto1.deposita(200)
     conto1.stampaSaldo()
     conto1.preleva(2000)
 
-    val conto2 = ContoBancario("Luca","Verdi")
+    val conto2 = esercitazioniClassEtc.ContoBancario("Luca","Verdi")
     conto2.preleva(100)
     conto2.deposita(200)
     conto2.mostraSaldoInDollari()
 
-    val conto3 = ContoBancario("Chris","Pugli",500)
-    val conto4 = ContoBancario("Chris","Pugli",500)
+    val conto3 = esercitazioniClassEtc.ContoBancario("Chris","Pugli",500)
+    val conto4 = esercitazioniClassEtc.ContoBancario("Chris","Pugli",500)
     //senza l'override di equals sarebbe false, perché fa riferimento a due istanze diverse malgrado siano uguali
     println(conto3 == conto4)
 
@@ -160,7 +162,7 @@ fun main() {
      * quindi bisogna stare attenti ai vari costruttori e init della classe madre
      * prima di estenderla alla classe figlio
      */
-    println("------ estensione classe ContoBancario a ContoBancaSella ---------")
+    println("------ estensione classe esercitazioniClassEtc.ContoBancario a esercitazioniClassEtc.ContoBancaSella ---------")
     var contoS = ContoBancaSella("Gino","Pippo")
     contoS deposita 1000
     contoS preleva 100

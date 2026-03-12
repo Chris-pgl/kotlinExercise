@@ -1,3 +1,5 @@
+package attivitaCorso
+
 interface Smartphone{
     fun takePhoto(){
         println("Scatto lo smartphone")
@@ -19,7 +21,7 @@ class Iphone: Smartphone, Camera{
 }
 
 //ese2---------------
-class Car{
+class Car(){
     var brand = ""
     var model = ""
     init {
