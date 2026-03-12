@@ -1,18 +1,26 @@
 package attivitaCorso
 
+/**
+ * Definiamo un interfaccia con un metodo di default
+ */
 interface Smartphone{
     fun takePhoto(){
         println("Scatto lo smartphone")
     }
 }
 
-
+/**
+ * Seconda interfaccia con metodo di default
+ */
 interface Camera{
     fun takePhoto(){
         println("Scatto con fotocamera")
     }
 }
 
+/**
+ * Implementazione delle interfaccie su classe e override dei metodi che si porta
+ */
 class Iphone: Smartphone, Camera{
     override fun takePhoto(){
         super<Camera>.takePhoto()
@@ -21,12 +29,12 @@ class Iphone: Smartphone, Camera{
 }
 
 //ese2---------------
+/**
+ * Creazione di classe Car senza costruttore e var vuote-
+ */
 class Car(){
     var brand = ""
     var model = ""
-    init {
-        println("Creata nuova auto: $brand $model")
-    }
 }
 
 fun main() {
@@ -38,6 +46,7 @@ fun main() {
     val car = Car().apply{
         brand = "Ford"
         model = "Mustang"
+        println("Creata nuova auto: $brand $model")
     }
 
     val nullable:String? = "kotlin"
