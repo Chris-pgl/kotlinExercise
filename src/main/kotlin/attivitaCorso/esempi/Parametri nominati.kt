@@ -1,3 +1,4 @@
+/*
 fun connetti(host: String, porta: Int = 8080, ssl: Boolean = true) {
     println("$host : $porta SSL=$ssl")
 }
@@ -22,6 +23,6 @@ fun main() {
       connetti(ssl = true, porta = 9090)
       /* Caso senza specificare host, ci darà errore nell'output perché 
        * host è obbligatorio (non ha nessun default)
-       * **/
+       *
 
-}
+} **/
