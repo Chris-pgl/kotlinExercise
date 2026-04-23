@@ -1,6 +1,0 @@
-package nozionKotlin
-
-
-fun main() {
-
-}
