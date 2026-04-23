@@ -1,4 +1,4 @@
-package nozionKotlin
+package nozionKotlinOOP
 
 fun main() {
     println("------------------ default Car class ----------------------")
