@@ -1,0 +1,37 @@
+data class Utente(
+    val username:String,
+    var eta:Int,
+    val email:String? = null){
+    
+    init{
+        println("Utente creato con successo, username: $username, eta: $eta, email: $email")
+    }
+    
+    
+    fun tipoAccount(eta:Int):String{
+        return if(eta >= 18) "Account completeto" else "Account junior"
+    }
+    
+    fun stampaRiepilogo(utente:Utente){
+        println("---Registrazionecompletata---")
+        println("Username:${utente.username}")
+        println("Età:${utente.eta}")
+        println("Account:${tipoAccount(utente.eta)}")
+        println("Email:${utente.email?:"nonfornita"}")}
+}
+
+fun main() {
+    
+    var utente1 = Utente("Gino",22)
+    var utente2 = Utente("PierinoCorino",21,"pierinocorino@peppino.utk")
+    var utente3 = Utente("Lucia",16,"lucia@licia.com")
+    
+    var listaUtenti = listOf(utente1,utente2,utente3)
+   	for(u in listaUtenti){
+        println("${u.tipoAccount(u.eta)}")
+    }
+    for(u in listaUtenti){
+        u.stampaRiepilogo(u)
+    }
+    
+}
