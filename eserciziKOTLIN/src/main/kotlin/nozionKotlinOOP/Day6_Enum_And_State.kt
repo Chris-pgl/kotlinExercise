@@ -1,11 +1,18 @@
 package nozionKotlinOOP
 
+import java.io.IOException
+
 fun main() {
     Repsitory.startFetch()
     getResult(result = Repsitory.getCurrentState())
     Repsitory.finishFetch()
     getResult(result = Repsitory.getCurrentState())
     Repsitory.error()
+    getResult(result = Repsitory.getCurrentState())
+
+    Repsitory.customFaiulure()
+    getResult(result = Repsitory.getCurrentState())
+    Repsitory.anotherCustomFaiulure()
     getResult(result = Repsitory.getCurrentState())
 
 }
@@ -25,6 +32,12 @@ fun getResult(result: Result){
             println("Idle")
         }
 
+        is Faiulure.AnotherCustomFailure -> {
+            println(result.anotherCustomFailure.toString())
+        }
+        is Faiulure.CustomFailure -> {
+            println(result.customFailure.toString())
+        }
     }
 }
 
@@ -61,6 +74,14 @@ object Repsitory{
         return loadState
     }
 
+    fun anotherCustomFaiulure(){
+        loadState = Faiulure.AnotherCustomFailure(anotherCustomFailure = NullPointerException("//AnotherCustomFaiulr - Something went wrong"))
+    }
+
+    fun customFaiulure(){
+        loadState = Faiulure.CustomFailure(customFailure = IOException("Custom Failure.."))
+    }
+
 
 }
 
@@ -68,6 +89,7 @@ object Repsitory{
 /**
  * Enum - enumerated type
  * tramite gli enum possiamo gestire i vari stati
+ * ma non possiamo ritornarci i dati per lavorarli
  */
 //enum class Result{
 //    //vorremo passare dati in piu come SUCCESS(val data:String) ma per farlo ci serve una classe astratta
@@ -92,11 +114,15 @@ object Repsitory{
  * es: nella fun getResult() non abbiamo più bisogno di un else.
  */
 sealed class Result
-
+//Abbiamo creato altre classi data e object per arginare il problema delle Enum, per poter ricevere meglio i dati
 data class Success(val dataFetch:String?): Result()
 data class Error(val exception: Exception): Result()
 object NotLoading: Result()
 object Loading: Result()
 
-
+// Le sealed class posso annidare varie altri classi al suo interno.
+sealed class Faiulure: Result(){
+    data class CustomFailure(val customFailure: IOException): Faiulure()
+    data class AnotherCustomFailure(val anotherCustomFailure: NullPointerException): Faiulure()
+}
 
