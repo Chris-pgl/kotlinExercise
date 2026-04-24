@@ -24,7 +24,7 @@ fun getResult(result: Result){
         is NotLoading ->{
             println("Idle")
         }
-        else -> print("N/A")
+
     }
 }
 
@@ -83,10 +83,20 @@ object Repsitory{
  *      ma una fomra non è solo un trinagolo.
  *      può essere un cerchio, un quadrato etc
  */
-
-abstract class Result
+//abstract class Result
+/**
+ * Cos'è una sealed class?
+ * è una classe astratta con una gerarchia limitata.
+ * le classi che ereditano la sealed, devono essere nello stesso file.
+ * tramite questa possiamo gestire meglio i casi.
+ * es: nella fun getResult() non abbiamo più bisogno di un else.
+ */
+sealed class Result
 
 data class Success(val dataFetch:String?): Result()
 data class Error(val exception: Exception): Result()
 object NotLoading: Result()
 object Loading: Result()
+
+
+
